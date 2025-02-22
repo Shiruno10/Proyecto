@@ -1,0 +1,20 @@
+COMO EVITAR REPETIR DATOS EN SQL:
+1.Elimar los que se repiten
+2.Vamos al codigo al archivo de registro:
+  ///Vericar que no se repitan los regitros
+    $verificar_datos = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo' ");
+        if(mysqli_num_rows($verificar_datos) > 0){
+            echo"
+                <script>
+                    alert('Este correo ya esta registrado, prueba con otro diferente');
+                    window.location = '../index.php';
+                </script>
+                    ";
+                    exit();
+                }
+
+ENCRIPTAR CONTRASENA
+   $password = hash('sha512', $password);
+
+
+// SI FUNCIONA NO LO TOQUES //////////////////////////////////////////////////////////////////
